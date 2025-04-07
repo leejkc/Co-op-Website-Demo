@@ -1,35 +1,66 @@
-import { useState } from 'react'
-import arrowleft from './assets/arrow-left.svg'
-import arrowright from './assets/arrow-right.svg'
-import './App.css'
+import { useDispatch } from "react-redux";
+import "./App.css";
+import {
+  ContentWrapper,
+  FooterWrapper,
+  MainWrapper,
+  PageContentWrapper,
+} from "./App.style";
+import Footer from "./components/Footer/Footer";
+import Menu from "./components/Menu/Menu";
+import AppRoutes from "./routes";
+import { useEffect } from "react";
+import {
+  retrieveAvailableSurveys,
+  retrieveDashboard,
+  retrieveRewardHistory,
+  retrieveRewards,
+  retrieveSurveyHistory,
+  setUserToken,
+} from "./features/dashboardSlice";
+import { useNavigate } from "react-router-dom";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  // temp
+  const dispatch = useDispatch();
+  const userToken = localStorage.getItem("userToken");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userToken) {
+      dispatch(setUserToken(userToken)); // Update the Redux store with the token
+      dispatch(retrieveDashboard());
+      dispatch(retrieveAvailableSurveys());
+      dispatch(retrieveRewardHistory());
+      dispatch(retrieveSurveyHistory());
+      dispatch(retrieveRewards());
+    } else {
+      navigate("/");
+    }
+  }, [dispatch, userToken]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={arrowleft} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={arrowright} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <MainWrapper>
+      {!userToken ? (
+        <PageContentWrapper>
+          <ContentWrapper>
+            <AppRoutes />
+          </ContentWrapper>
+        </PageContentWrapper>
+      ) : (
+        <PageContentWrapper>
+          <Menu />
+          <ContentWrapper>
+            {/* page content */}
+            <AppRoutes />
+          </ContentWrapper>
+          <FooterWrapper>
+            <Footer />
+          </FooterWrapper>
+        </PageContentWrapper>
+      )}
+    </MainWrapper>
+  );
+};
 
-export default App
+export default App ;
