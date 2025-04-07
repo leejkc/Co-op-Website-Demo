@@ -55,10 +55,6 @@ const FinancialsPage = () => {
               On this page you can see all the rewards you received from us for
               your participation in our studies. If you have any query, please
               fill out the support form or mail us directly at{" "}
-              <a href="https://eedo.se/contact/" target="blank">
-                hello@eedo.se
-              </a>
-              .
             </HeaderText>
           </HeaderContentWrapper>
         </Card>

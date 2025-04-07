@@ -24,11 +24,11 @@ import {
 } from "../../utils/utils";
 
 const panelDescriptionDummyData = {
-  panelTitle: "EEDO Panel",
+  panelTitle: "COMPANY Panel",
   panelDescription: (
     <div>
       <span>
-        Welcome to your personal page of EEDO Panel! On this page you can:
+        Welcome to your personal page of COMPANY Panel! On this page you can:
       </span>
       <ul>
         <li>See and start new survey opportunities</li>
@@ -36,7 +36,7 @@ const panelDescriptionDummyData = {
         <li>See your participation and payment history.</li>
       </ul>
       <span>
-        On behalf of the entire EEDO Panel team we would like to thank you for
+        On behalf of the entire COMPANY Panel team we would like to thank you for
         being a member of our community!
       </span>
     </div>

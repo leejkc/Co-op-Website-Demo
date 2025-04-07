@@ -10,15 +10,15 @@ import { Link } from "react-router-dom";
 const Links = [
   {
     label: "Privacy Policy",
-    route: "https://eedo.se/privacy-policy/",
+    route: "https://google.com",
   },
   {
     label: "Terms of Use",
-    route: "https://eedo.se/privacy-policy/",
+    route: "https://google.com",
   },
   {
     label: "Support",
-    route: "https://eedo.se/contact/",
+    route: "https://google.com",
   },
   {
     label: "Unsubscribe",

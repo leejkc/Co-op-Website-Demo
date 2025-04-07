@@ -45,7 +45,7 @@ const HistoryPage = () => {
               In the overview below you can see all surveys you have been
               invited to and your participation. Are you missing anything or do
               you have any questions? Please fill out the support form or mail
-              us directly at <a href="mailto:hello@eedo.se">hello@eedo.se</a>
+              us directly at 
             </HeaderText>
           </HeaderContentWrapper>
         </Card>
