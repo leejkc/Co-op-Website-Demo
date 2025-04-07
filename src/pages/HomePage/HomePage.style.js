@@ -26,10 +26,11 @@ export const OverviewWrapper = styled.div`
 export const Container = styled.div`
   display: flex;
   flex: 2;
+  gap: 50px;
   margin: auto;
   place-items: center;
   place-content: center;
-  justify-content: space-evenly;
+  justify-content: center;
 `;
 export const InfoContainer = styled.div`
   position: relative;
@@ -74,12 +75,27 @@ export const PanelInfoContainer = styled.div`
   margin-top: 20px;
 `;
 export const PanelTitle = styled.div`
-  color: ${theme.mainTheme};
-  font-weight: 500;
+  color: ${theme.black};
+  
+  font-weight: 650;
   font-size: 2em;
 `;
 export const PanelDescription = styled.div`
   color: ${theme.black};
   font-weight: 300;
   font-size: 1em;
+`;
+export const VerticalContainer = styled.div`
+  position: relative;
+  place-items: center;
+  place-content: center;
+  background-position: center;
+  margin-top: 2px;
+  gap: 20px;
+  height: 450px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  @media (max-width: ${breakpoints.md}) {
+    display: none;
+  }
 `;

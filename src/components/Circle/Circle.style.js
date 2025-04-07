@@ -5,9 +5,9 @@ export const MainWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3px;
-  border-radius: 10%;
-  width: 130px;
-  height: 130px;
+  border-radius: 8px;
+  width: 210px;
+  height: 170px;
   background-color: white;
   place-items: center;
   place-content: center;
@@ -21,10 +21,10 @@ export const MainWrapper = styled.div`
 
 export const TopText = styled.div`
   color: ${theme.mainTheme};
-  font-size: 2.2em;
+  font-size: 2em;
 `;
 
 export const BottomText = styled.div`
   color: ${theme.subTheme};
-  font-size: 1.5em;
+  font-size: 1em;
 `;

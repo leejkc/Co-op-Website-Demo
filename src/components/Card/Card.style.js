@@ -11,17 +11,20 @@ export const Wrapper = styled.div`
   border-radius: 8px;
   background-color: ${theme.white};
   border: 1px solid ${theme.white};
-  width: ${(props) => (props.iscard === "false" ? "unset" : "400px")};
   box-shadow: 0px 0px 3px ${(props) => (props.lowshadow ? "1px" : "3px")} ${theme.lightGray};
   margin: 10px;
-  padding: ${(props) => (props.iscard === "false" ? "20px" : " 10px 0 0 0")};
-  min-height: 180px;
+  
+  padding: 20px;
+  width: 500px;
+  min-height: 195px;
 
   @media (max-width: ${breakpoints.sm}) {
     width: 90%;
     padding: ${(props) => (props.iscard === "false" ? "10px" : " 6px 0 0 0")};
   }
 `;
+//padding: ${(props) => (props.iscard === "false" ? "20px" : " 10px 0 0 0")};
+// width: ${(props) => (props.iscard === "false" ? "unset" : "400px")};
 
 export const StartTag = styled.a`
   color: ${theme.white};
@@ -36,7 +39,7 @@ export const TextWrapper = styled.div`
 
 export const CardTitle = styled.div`
   font-weight: 600;
-  font-size: 1.5em;
+  font-size: 1em;
 `;
 export const CardDesc = styled.div``;
 export const RowContainer = styled.div`

@@ -9,6 +9,7 @@ import {
   PanelDescription,
   PanelInfoContainer,
   PanelTitle,
+  VerticalContainer,
   WrapperMain,
 } from "./HomePage.style";
 import { CarouselProvider } from "../../context/CarouselContext";
@@ -42,6 +43,16 @@ const panelDescriptionDummyData = {
     </div>
   ),
 };
+const welcomeText = {
+  title: "Welcome to your personal page of COMPANY Panel!",
+  description: (
+    <div>
+      <span>
+        Member ID: <strong>123456789</strong>
+      </span>
+    </div>
+  ),
+};
 
 const HomePage = () => {
   const availableSurveys = useSelector(selectAvailableSurveys);
@@ -66,18 +77,42 @@ const HomePage = () => {
     <WrapperMain>
       <OverviewWrapper>
         <Container>
-          <CircleOverview
-            topText={`${currencySymbol}${totalRewardsAmount}`}
-            bottomText="Earned"
-          />
-          <CircleOverview
-            topText={completedThisYear}
-            bottomText="Completed this year"
-          />
-          <CircleOverview
-            topText={completedLastYear}
-            bottomText={"Completed last year"}
-          />
+          <VerticalContainer>
+            <Card>
+              <PanelTitle>{panelDescriptionDummyData?.panelTitle}</PanelTitle>
+              <PanelDescription>
+                {panelDescriptionDummyData?.panelDescription}
+              </PanelDescription>
+            </Card>
+            <Card>
+              <PanelTitle>{panelDescriptionDummyData?.panelTitle}</PanelTitle>
+              <PanelDescription>
+                {panelDescriptionDummyData?.panelDescription}
+              </PanelDescription>
+            </Card>
+          </VerticalContainer>
+          <VerticalContainer>
+            <Container>
+              <CircleOverview
+                topText={`${currencySymbol}${totalRewardsAmount}`}
+                bottomText="Earned"
+              />
+              <CircleOverview
+                topText={completedThisYear}
+                bottomText="Completed this year"
+              />
+              <CircleOverview
+                topText={completedLastYear}
+                bottomText={"Completed last year"}
+              />
+            </Container>
+            <Container>
+              <CircleOverview
+                topText={`${currencySymbol}${totalRewardsAmount}`}
+                bottomText="Earned"
+              />
+            </Container>
+          </VerticalContainer>
         </Container>
       </OverviewWrapper>
       {carouselItems.length > 0 ? (
@@ -98,12 +133,7 @@ const HomePage = () => {
       ) : (
         <InfoContainer>
           <PanelInfoContainer>
-            <Card>
-              <PanelTitle>{panelDescriptionDummyData?.panelTitle}</PanelTitle>
-              <PanelDescription>
-                {panelDescriptionDummyData?.panelDescription}
-              </PanelDescription>
-            </Card>
+            {/* nothing */}
           </PanelInfoContainer>
         </InfoContainer>
       )}
