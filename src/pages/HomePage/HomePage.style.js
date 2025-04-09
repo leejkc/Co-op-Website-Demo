@@ -16,7 +16,7 @@ export const OverviewWrapper = styled.div`
   background-image: url(${ImgBackground});
   background-position: center;
   margin-top: 2px;
-  height: 450px;
+  height: 300px;
   background-size: cover;
   background-repeat: no-repeat;
   @media (max-width: ${breakpoints.md}) {
@@ -38,7 +38,7 @@ export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex: 2;
-  margin: auto;
+  margin: 350px;
   place-items: center;
   place-content: center;
   justify-content: space-evenly;
@@ -76,7 +76,7 @@ export const PanelInfoContainer = styled.div`
 `;
 export const PanelTitle = styled.div`
   color: ${theme.black};
-  
+
   font-weight: 650;
   font-size: 2em;
 `;
@@ -85,13 +85,35 @@ export const PanelDescription = styled.div`
   font-weight: 300;
   font-size: 1em;
 `;
+export const Title = styled.div`
+  color: ${theme.white};
+
+  font-weight: 650;
+  font-size: 2em;
+`;
+export const Description = styled.div`
+  color: ${theme.white};
+  font-weight: 300;
+  font-size: 1em;
+`;
+export const TitleContainer = styled.div`
+  position: relative;
+  place-items: center;
+  place-content: center;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 50px;
+  @media (max-width: ${breakpoints.md}) {
+    display: none;
+  }
+`;
 export const VerticalContainer = styled.div`
   position: relative;
   place-items: center;
   place-content: center;
   background-position: center;
   margin-top: 2px;
-  gap: 20px;
   height: 450px;
   background-size: cover;
   background-repeat: no-repeat;

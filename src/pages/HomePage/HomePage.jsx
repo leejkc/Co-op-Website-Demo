@@ -9,6 +9,9 @@ import {
   PanelDescription,
   PanelInfoContainer,
   PanelTitle,
+  Title,
+  Description,
+  TitleContainer,
   VerticalContainer,
   WrapperMain,
 } from "./HomePage.style";
@@ -23,6 +26,7 @@ import {
   getCompletedSurveysInYear,
   getCurrencySymbol,
 } from "../../utils/utils";
+import { Empty } from "../../components/Circle/Circle.style";
 
 const panelDescriptionDummyData = {
   panelTitle: "COMPANY Panel",
@@ -37,15 +41,15 @@ const panelDescriptionDummyData = {
         <li>See your participation and payment history.</li>
       </ul>
       <span>
-        On behalf of the entire COMPANY Panel team we would like to thank you for
-        being a member of our community!
+        On behalf of the entire COMPANY Panel team we would like to thank you
+        for being a member of our community!
       </span>
     </div>
   ),
 };
 const welcomeText = {
-  title: "Welcome to your personal page of COMPANY Panel!",
-  description: (
+  panelTitle: "Welcome to your personal page of COMPANY Panel!",
+  panelDescription: (
     <div>
       <span>
         Member ID: <strong>123456789</strong>
@@ -76,6 +80,10 @@ const HomePage = () => {
   return (
     <WrapperMain>
       <OverviewWrapper>
+        <TitleContainer>
+          <Title>{welcomeText?.panelTitle}</Title>
+          <Description>{welcomeText?.panelDescription}</Description>
+        </TitleContainer>
         <Container>
           <VerticalContainer>
             <Card>
@@ -111,6 +119,8 @@ const HomePage = () => {
                 topText={`${currencySymbol}${totalRewardsAmount}`}
                 bottomText="Earned"
               />
+              <Empty/>
+              <Empty/>
             </Container>
           </VerticalContainer>
         </Container>
@@ -131,11 +141,7 @@ const HomePage = () => {
           </PanelInfoContainer>
         </ContainerColumn>
       ) : (
-        <InfoContainer>
-          <PanelInfoContainer>
-            {/* nothing */}
-          </PanelInfoContainer>
-        </InfoContainer>
+        <InfoContainer></InfoContainer>
       )}
     </WrapperMain>
   );

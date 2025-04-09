@@ -1,4 +1,4 @@
-import { BottomText, MainWrapper, TopText } from "./Circle.style";
+import { BottomText, Empty, MainWrapper, TopText } from "./Circle.style";
 import PropTypes from "prop-types";
 
 const CircleOverview = ({ topText, bottomText }) => {
@@ -10,6 +10,9 @@ const CircleOverview = ({ topText, bottomText }) => {
   );
 };
 export default CircleOverview;
+export const CircleEmpty = () => {
+  return <Empty></Empty>;
+}
 
 CircleOverview.propTypes = {
   topText: PropTypes.string.isRequired,
