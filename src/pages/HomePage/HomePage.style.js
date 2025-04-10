@@ -109,6 +109,8 @@ export const TitleContainer = styled.div`
   }
 `;
 export const VerticalContainer = styled.div`
+  display: grid;
+  gap: 50px;
   position: relative;
   place-items: center;
   place-content: center;
@@ -120,4 +122,9 @@ export const VerticalContainer = styled.div`
   @media (max-width: ${breakpoints.md}) {
     display: none;
   }
+`;
+export const ContainerWrapper = styled.div`
+  place-items: center;
+  place-content: center;
+  justify-content: center;
 `;
