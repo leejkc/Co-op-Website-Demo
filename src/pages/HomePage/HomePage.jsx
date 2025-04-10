@@ -13,6 +13,7 @@ import {
   Description,
   TitleContainer,
   VerticalContainer,
+  CircleContainer,
   WrapperMain,
 } from "./HomePage.style";
 import { CarouselProvider } from "../../context/CarouselContext";
@@ -26,7 +27,6 @@ import {
   getCompletedSurveysInYear,
   getCurrencySymbol,
 } from "../../utils/utils";
-import { Empty } from "../../components/Circle/Circle.style";
 
 const panelDescriptionDummyData = {
   panelTitle: "COMPANY Panel",
@@ -99,30 +99,24 @@ const HomePage = () => {
               </PanelDescription>
             </Card>
           </VerticalContainer>
-          <VerticalContainer>
-            <Container>
-              <CircleOverview
-                topText={`${currencySymbol}${totalRewardsAmount}`}
-                bottomText="Earned"
-              />
-              <CircleOverview
-                topText={completedThisYear}
-                bottomText="Completed this year"
-              />
-              <CircleOverview
-                topText={completedLastYear}
-                bottomText={"Completed last year"}
-              />
-            </Container>
-            <Container>
-              <CircleOverview
-                topText={`${currencySymbol}${totalRewardsAmount}`}
-                bottomText="Earned"
-              />
-              <Empty/>
-              <Empty/>
-            </Container>
-          </VerticalContainer>
+          <CircleContainer>
+            <CircleOverview
+              topText={`${currencySymbol}${totalRewardsAmount}`}
+              bottomText="Earned"
+            />
+            <CircleOverview
+              topText={completedThisYear}
+              bottomText="Completed this year"
+            />
+            <CircleOverview
+              topText={completedLastYear}
+              bottomText={"Completed last year"}
+            />
+            <CircleOverview
+              topText={`${currencySymbol}${totalRewardsAmount}`}
+              bottomText="Earned"
+            />
+          </CircleContainer>
         </Container>
       </OverviewWrapper>
       {carouselItems.length > 0 ? (

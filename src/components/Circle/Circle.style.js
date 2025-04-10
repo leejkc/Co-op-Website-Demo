@@ -19,18 +19,6 @@ export const MainWrapper = styled.div`
     ${theme.lightGray};
 `;
 
-export const Empty = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  border-radius: 8px;
-  width: 210px;
-  height: 170px;
-  place-items: center;
-  place-content: center;
-  padding: 20px;
-`;
-
 export const TopText = styled.div`
   color: ${theme.mainTheme};
   font-size: 2em;

@@ -26,8 +26,9 @@ export const OverviewWrapper = styled.div`
 export const Container = styled.div`
   display: flex;
   flex: 2;
-  gap: 50px;
-  margin: auto;
+  gap: 100px;
+  margin: 150px;
+  margin-top: 80px;
   place-items: center;
   place-content: center;
   justify-content: center;
@@ -115,7 +116,7 @@ export const VerticalContainer = styled.div`
   place-items: center;
   place-content: center;
   background-position: center;
-  margin-top: 2px;
+  margin-top: 50px;
   height: 450px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -123,8 +124,12 @@ export const VerticalContainer = styled.div`
     display: none;
   }
 `;
-export const ContainerWrapper = styled.div`
+export const CircleContainer = styled.div`
+  display: flex;
+  flex: 2;
+  gap: 50px;
   place-items: center;
   place-content: center;
-  justify-content: center;
+  justify-content: left;
+  flex-wrap: wrap;
 `;
