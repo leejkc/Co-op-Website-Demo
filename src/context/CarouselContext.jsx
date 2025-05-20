@@ -9,20 +9,64 @@ const CarouselContext = createContext();
 const useCarousel = () => {
   return useContext(CarouselContext);
 };
-export const SamplePrevArrow = () => {
-  const carousel = useCarousel();
-  return (
-    <ArrowContainer direction="left" onClick={() => carousel.handlePrev()}>
+
+export const CarouselProvider = ({ children, items, settings }) => {
+  let sliderRef = useRef(null);
+
+  const handleNext = () => {
+    sliderRef.current.slickNext();
+  };
+
+  const handlePrev = () => {
+    sliderRef.current.slickPrev();
+  };
+
+  // Define arrows inside the provider so they have access to context
+  const SamplePrevArrow = (props) => (
+    <ArrowContainer
+      direction="left"
+      onClick={props.onClick}
+      className={props.className}
+      style={props.style}
+    >
       <img src={LeftArrow} alt="left_arrow" />
     </ArrowContainer>
   );
-};
-export const SampleNextArrow = () => {
-  const carousel = useCarousel();
-  return (
-    <ArrowContainer direction="right" onClick={() => carousel.handleNext()}>
+  const SampleNextArrow = (props) => (
+    <ArrowContainer
+      direction="right"
+      onClick={props.onClick}
+      className={props.className}
+      style={props.style}
+    >
       <img src={RightArrow} alt="right_arrow" />
     </ArrowContainer>
+  );
+
+  // Use settings from props or default, but override arrows with local ones
+  let settingsProp = {
+    ...(settings || settingsDefault),
+    prevArrow: <SamplePrevArrow />,
+    nextArrow: <SampleNextArrow />,
+  };
+
+  return (
+    <CarouselContext.Provider value={{ handleNext, handlePrev }}>
+      <React.Fragment>
+        {children}
+        <div style={{ width: "100%" }}>
+          <Slider
+            ref={(slider) => {
+              sliderRef.current = slider;
+            }}
+            {...settingsProp}
+            style={{ width: "100%" }}
+          >
+            {items}
+          </Slider>
+        </div>
+      </React.Fragment>
+    </CarouselContext.Provider>
   );
 };
 
@@ -33,8 +77,6 @@ const settingsDefault = {
   slidesToShow: 2,
   slidesToScroll: 1,
   arrows: true,
-  prevArrow: <SamplePrevArrow />,
-  nextArrow: <SampleNextArrow />,
   responsive: [
     {
       breakpoint: 900,
@@ -70,33 +112,4 @@ const settingsDefault = {
       },
     },
   ],
-};
-
-export const CarouselProvider = ({ children, items, settings }) => {
-  let sliderRef = useRef(null);
-  let settingsProp = settings || settingsDefault;
-
-  const handleNext = () => {
-    sliderRef.current.slickNext();
-  };
-
-  const handlePrev = () => {
-    sliderRef.current.slickPrev();
-  };
-
-  return (
-    <CarouselContext.Provider value={{ handleNext, handlePrev }}>
-      <React.Fragment>
-        {children}
-        <Slider
-          ref={(slider) => {
-            sliderRef.current = slider;
-          }}
-          {...settingsProp}
-        >
-          {items}
-        </Slider>
-      </React.Fragment>
-    </CarouselContext.Provider>
-  );
 };

@@ -84,59 +84,46 @@ const HomePage = () => {
           <Title>{welcomeText?.panelTitle}</Title>
           <Description>{welcomeText?.panelDescription}</Description>
         </TitleContainer>
-        <Container>
-          <VerticalContainer>
-            <Card>
-              <PanelTitle>{panelDescriptionDummyData?.panelTitle}</PanelTitle>
-              <PanelDescription>
-                {panelDescriptionDummyData?.panelDescription}
-              </PanelDescription>
-            </Card>
-            <Card>
-              <PanelTitle>{panelDescriptionDummyData?.panelTitle}</PanelTitle>
-              <PanelDescription>
-                {panelDescriptionDummyData?.panelDescription}
-              </PanelDescription>
-            </Card>
-          </VerticalContainer>
-          <CircleContainer>
-            <CircleOverview
-              topText={`${currencySymbol}${totalRewardsAmount}`}
-              bottomText="Earned"
-            />
-            <CircleOverview
-              topText={completedThisYear}
-              bottomText="Completed this year"
-            />
-            <CircleOverview
-              topText={completedLastYear}
-              bottomText={"Completed last year"}
-            />
-            <CircleOverview
-              topText={`${currencySymbol}${totalRewardsAmount}`}
-              bottomText="Earned"
-            />
-          </CircleContainer>
-        </Container>
-      </OverviewWrapper>
-      {carouselItems.length > 0 ? (
-        <ContainerColumn>
+        <VerticalContainer>
+          <Container>
+            <VerticalContainer>
+              <Card>
+                <PanelTitle>{panelDescriptionDummyData?.panelTitle}</PanelTitle>
+                <PanelDescription>
+                  {panelDescriptionDummyData?.panelDescription}
+                </PanelDescription>
+              </Card>
+              <Card>
+                <PanelTitle>{panelDescriptionDummyData?.panelTitle}</PanelTitle>
+                <PanelDescription>
+                  {panelDescriptionDummyData?.panelDescription}
+                </PanelDescription>
+              </Card>
+            </VerticalContainer>
+            <CircleContainer>
+              <CircleOverview
+                topText={`${currencySymbol}${totalRewardsAmount}`}
+                bottomText="Earned"
+              />
+              <CircleOverview
+                topText={completedThisYear}
+                bottomText="Completed this year"
+              />
+              <CircleOverview
+                topText={completedLastYear}
+                bottomText={"Completed last year"}
+              />
+              <CircleOverview
+                topText={`${currencySymbol}${totalRewardsAmount}`}
+                bottomText="Earned"
+              />
+            </CircleContainer>
+          </Container>
           <CardsCarouselWrapper>
             <CarouselProvider items={carouselItems} />
           </CardsCarouselWrapper>
-
-          <PanelInfoContainer>
-            <Card>
-              <PanelTitle>{panelDescriptionDummyData?.panelTitle}</PanelTitle>
-              <PanelDescription>
-                {panelDescriptionDummyData?.panelDescription}
-              </PanelDescription>
-            </Card>
-          </PanelInfoContainer>
-        </ContainerColumn>
-      ) : (
-        <InfoContainer></InfoContainer>
-      )}
+        </VerticalContainer>
+      </OverviewWrapper>
     </WrapperMain>
   );
 };
