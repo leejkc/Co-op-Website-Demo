@@ -31,7 +31,7 @@ export const OverviewWrapper = styled.div`
 export const Container = styled.div`
   display: flex;
   flex: 2;
-  gap: 100px;
+  gap: 300px;
   margin: 40px 0; // Change from margin: 150px; margin-top: 80px;
   place-items: center;
   place-content: center;
